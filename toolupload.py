@@ -40,7 +40,6 @@ except ImportError:
 
 # === HÀM TÌM KIẾM THƯ MỤC CHƯƠNG ===
 def find_chapter_folder(root_path, chapter_num):
-    # ... (Hàm này giữ nguyên không đổi)
     chapter_num_str = str(chapter_num)
     possible_names = [f"chapter-{chapter_num_str}",f"chuong-{chapter_num_str}",f"chap-{chapter_num_str}",f"chapter {chapter_num_str}",f"chuong {chapter_num_str}",f"chap {chapter_num_str}",f"chapter{chapter_num_str}",f"chuong{chapter_num_str}",f"chap{chapter_num_str}",chapter_num_str]
     try:
@@ -55,7 +54,7 @@ def find_chapter_folder(root_path, chapter_num):
 # HÀM LOGIC UPLOAD
 # ===================================================================
 def batch_upload_logic(login_info, chapter_info, status_label, upload_button):
-    # ... (Khai báo biến giữ nguyên)
+    # ... (Khai báo biến)
     USERNAME = login_info['username']
     PASSWORD = login_info['password']
     LOGIN_URL = login_info['login_url']
@@ -68,13 +67,13 @@ def batch_upload_logic(login_info, chapter_info, status_label, upload_button):
     try:
         status_label.config(text="Trạng thái: Đang kiểm tra/tải về driver...", fg="blue")
         
-        # === THAY ĐỔI LỚN: KHỞI ĐỘNG DRIVER TỰ ĐỘNG ===
+        # === KHỞI ĐỘNG DRIVER TỰ ĐỘNG ===
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
         # =============================================
         
         driver.implicitly_wait(10)
 
-        # ... (Toàn bộ logic đăng nhập và upload còn lại giữ nguyên không đổi)
+        # ... (logic đăng nhập và upload )
         status_label.config(text=f"Trạng thái: Đang đăng nhập tại {LOGIN_URL}...")
         driver.get(LOGIN_URL)
         ID_O_TEN_DANG_NHAP = "username"
@@ -146,10 +145,9 @@ def batch_upload_logic(login_info, chapter_info, status_label, upload_button):
         upload_button.config(state=tk.NORMAL)
 
 # ===================================================================
-# PHẦN GIAO DIỆN (GUI) - Giữ nguyên
+# PHẦN GIAO DIỆN (GUI) 
 # ===================================================================
 class App:
-    # ... (Toàn bộ class App giữ nguyên không đổi)
     def __init__(self, root):
         self.root = root
         root.title("Tool Upload Truyện Tự Động (vPro)")
